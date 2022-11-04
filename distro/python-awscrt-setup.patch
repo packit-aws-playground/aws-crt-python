@@ -1,0 +1,13 @@
+diff -urN aws-crt-python-0.12.6-orig/setup.py aws-crt-python-0.12.6/setup.py
+--- aws-crt-python-0.12.6-orig/setup.py	2021-10-16 03:34:31.000000000 +0000
++++ aws-crt-python-0.12.6/setup.py	2022-01-20 18:37:53.471024381 +0000
+@@ -253,9 +253,6 @@
+         libraries = []
+ 
+     else:  # unix
+-        # linker will prefer shared libraries over static if it can find both.
+-        # force linker to choose static variant by using using "-l:libcrypto.a" syntax instead of just "-lcrypto".
+-        libraries = [':lib{}.a'.format(x) for x in libraries]
+         libraries += ['rt']
+ 
+     if distutils.ccompiler.get_default_compiler() != 'msvc':
